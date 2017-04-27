@@ -1,0 +1,23 @@
+{
+    "name": "thepozer/simple-view",
+    "description": "Simple view system to use with Slim FrameWork v3",
+    "type": "library",
+    "require": {
+        "psr/http-message": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Didier Prolhac",
+            "email": "dev@thepozer.net",
+			"homepage": "http://www.thepozer.net/",
+			"role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+	"autoload": {
+		"psr-4": {
+			"Thepozer\\View\\": "src/"
+		}
+	},
+}
