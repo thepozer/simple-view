@@ -2,6 +2,7 @@
     "name": "thepozer/simple-view",
     "description": "Simple view system to use with Slim FrameWork v3",
     "type": "library",
+	"homepage": "https://github.com/thepozer/simple-view",
     "require": {
         "psr/http-message": "^1.0"
     },
@@ -19,5 +20,5 @@
 		"psr-4": {
 			"Thepozer\\View\\": "src/"
 		}
-	},
+	}
 }
