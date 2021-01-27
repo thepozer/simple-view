@@ -122,9 +122,10 @@ class SimpleView implements \ArrayAccess, \Countable, \IteratorAggregate {
      *
      * @return bool
      */
-    public function offsetExists(string $sName) {
+    public function offsetExists($sName) {
         return array_key_exists($sName, $this->arValues);
     }
+
     /**
      * Get collection item for key
      *
@@ -132,32 +133,35 @@ class SimpleView implements \ArrayAccess, \Countable, \IteratorAggregate {
      *
      * @return mixed The key's value, or the default value
      */
-    public function offsetGet(string $sName) {
+    public function offsetGet($sName) {
         if (array_key_exists($sName, $this->arValues)) {
             return $this->arValues[$sName];
         } else {
             throw new \Exception("Undefined property : {$sName}");
         }
     }
+
     /**
      * Set collection item
      *
      * @param string $sName  The data key
      * @param mixed  $mValue The data value
      */
-    public function offsetSet(string $sName, $mValue) {
+    public function offsetSet($sName, $mValue) {
         $this->arValues[$sName] = $mValue;
     }
+
     /**
      * Remove item from collection
      *
      * @param string $sName The data key
      */
-    public function offsetUnset(string $sName) {
+    public function offsetUnset($sName) {
         if (array_key_exists($sName, $this->arValues)) {
             unset($this->arValues[$sName]);
         }
     }
+    
     /********************************************************************************
      * Countable interface
      *******************************************************************************/
