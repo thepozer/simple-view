@@ -55,7 +55,7 @@ class SimpleView implements \ArrayAccess, \Countable, \IteratorAggregate {
         return $oResponse;
     }
 
-    private function isCurrentView($mViewsNames): boolean {
+    private function isCurrentView($mViewsNames): bool {
         $arViewsNames = (is_array($mViewsNames)) ? $mViewsNames : [$mViewsNames];
 
         return in_array($this->sCurrentView, $arViewsNames);
@@ -118,47 +118,47 @@ class SimpleView implements \ArrayAccess, \Countable, \IteratorAggregate {
     /**
      * Does this collection have a given key?
      *
-     * @param string $sName The data key
+     * @param mixed $mName The data key
      *
      * @return bool
      */
-    public function offsetExists($sName) {
-        return array_key_exists($sName, $this->arValues);
+    public function offsetExists(mixed $mName) : bool {
+        return array_key_exists($mName, $this->arValues);
     }
 
     /**
      * Get collection item for key
      *
-     * @param string $sName The data key
+     * @param mixed $mName The data key
      *
      * @return mixed The key's value, or the default value
      */
-    public function offsetGet($sName) {
-        if (array_key_exists($sName, $this->arValues)) {
-            return $this->arValues[$sName];
+    public function offsetGet(mixed $mName): mixed {
+        if (array_key_exists($mName, $this->arValues)) {
+            return $this->arValues[$mName];
         } else {
-            throw new \Exception("Undefined property : {$sName}");
+            throw new \Exception("Undefined property : {$mName}");
         }
     }
 
     /**
      * Set collection item
      *
-     * @param string $sName  The data key
+     * @param mixed $mName  The data key
      * @param mixed  $mValue The data value
      */
-    public function offsetSet($sName, $mValue) {
-        $this->arValues[$sName] = $mValue;
+    public function offsetSet(mixed $mName, mixed $mValue): void {
+        $this->arValues[$mName] = $mValue;
     }
 
     /**
      * Remove item from collection
      *
-     * @param string $sName The data key
+     * @param mixed $mName The data key
      */
-    public function offsetUnset($sName) {
-        if (array_key_exists($sName, $this->arValues)) {
-            unset($this->arValues[$sName]);
+    public function offsetUnset(mixed $mName):void {
+        if (array_key_exists($mName, $this->arValues)) {
+            unset($this->arValues[$mName]);
         }
     }
     
