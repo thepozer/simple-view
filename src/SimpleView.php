@@ -26,6 +26,8 @@ namespace Thepozer\View ;
 use Psr\Http\Message\ResponseInterface;
 
 class SimpleView implements \ArrayAccess, \Countable, \IteratorAggregate {
+    private $arHeaders = array();
+
     private $arValues = array();
 
     private $sViewDir      = null;
@@ -89,6 +91,18 @@ class SimpleView implements \ArrayAccess, \Countable, \IteratorAggregate {
 
     private function includeView() {
         require $this->sViewFilename;
+    }
+
+    public function addExtraHeaders(string $sValue) {
+        $this->arHeaders[] = $sValue;
+    }
+
+    public function clearExtraHeaders() {
+        $this->arHeaders = [];
+    }
+
+    private function getExtraHeaders() {
+        echo implode("\n", $this->arHeaders);
     }
 
     /********************************************************************************
@@ -187,3 +201,4 @@ class SimpleView implements \ArrayAccess, \Countable, \IteratorAggregate {
     }
  
 }
+
